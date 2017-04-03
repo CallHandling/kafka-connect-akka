@@ -40,14 +40,16 @@ resolvers += "krasserm at bintray" at "http://dl.bintray.com/krasserm/maven"
 resolvers += "logger" at "https://mvnrepository.com/artifact"
 
 
-
+lazy val akkaVersion = "2.4.16"
 
 libraryDependencies ++= Seq(
   "org.apache.kafka"       % "connect-api"            % "0.10.2.0",
   "joda-time"              %  "joda-time"             % "2.9.3",
   "org.joda"               %  "joda-convert"          % "1.8.1",
   "org.apache.kafka"       % "connect-runtime"        % "0.10.2.0",
-  "com.typesafe.akka"      %%  "akka-actor"           % "2.4.16"
+  "com.typesafe.akka"      %% "akka-cluster"          % akkaVersion,
+  "com.typesafe.akka"      %% "akka-cluster-tools"    % akkaVersion,
+  "com.typesafe.akka"      %%  "akka-actor"           % akkaVersion
 )
 
 //sbt assembly
